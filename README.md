@@ -24,7 +24,7 @@ export default Ember.Controller.extend()
 # If you already have ember-cli-coffeescript installed
 npm uninstall ember-cli-coffeescript --save-dev
 
-npm install ember-cli-coffees6
+npm install ember-cli-coffees6 --save-dev
 ```
 
 ## Warnings / disclaimers
