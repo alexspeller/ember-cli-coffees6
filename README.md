@@ -27,6 +27,18 @@ npm uninstall ember-cli-coffeescript --save-dev
 npm install ember-cli-coffees6 --save-dev
 ```
 
+## Debugging
+
+You can turn on verbose debugging output by adding the option in your Brocfile.js:
+
+```javascript
+var app = new EmberApp({
+  coffeeES6: {
+    debug: true
+  }
+});
+```
+
 ## Warnings / disclaimers
 
 1. `export`, `default`, and `import` are reserved words in coffeescript. It's possible that in future they will be implemented with a different meaning. You may have to refactor this code to work with possible future versions of coffeescript
