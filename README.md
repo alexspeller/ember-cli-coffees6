@@ -43,3 +43,9 @@ var app = new EmberApp({
 
 1. `export`, `default`, and `import` are reserved words in coffeescript. It's possible that in future they will be implemented with a different meaning. You may have to refactor this code to work with possible future versions of coffeescript
 2. This currently works with ugly regex substitution and not a full parsing. It won't work for every possible expression or indentation etc.
+3. exporting the value returned from Router.map may give you this error: `Failed to create an instance of 'router:main'. Most likely an improperly defined class or an invalid module export` if this is the case, use a `Router` variable like you would without this plugin:
+```coffee
+Router = Ember.Router.extend()
+Router.map( -> ... )
+export default Router
+```
