@@ -49,3 +49,4 @@ Router = Ember.Router.extend()
 Router.map( -> ... )
 export default Router
 ```
+An old version of Router.map wouldn't return the `Router` instance, but this [should be solved](https://github.com/emberjs/ember.js/commit/23b762fd19b431deaa0e8f7541aac53dce4aa9c3) in ember v1.11.0-beta.4
