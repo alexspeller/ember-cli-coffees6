@@ -27,6 +27,20 @@ npm uninstall ember-cli-coffeescript --save-dev
 npm install ember-cli-coffees6 --save-dev
 ```
 
+## Known bugs:
+
+1. For ember v1 - v1.10.0, `Router.map` does not return the Router instance, so you can't do `export default Router.map(...)` and need to do this instead:
+```coffee
+Router = Ember.Router.extend()
+Router.map( -> ... )
+export default Router
+```
+
+Track the fix here: https://github.com/emberjs/ember.js/commit/23b762fd19b431deaa0e8f7541aac53dce4aa9c3
+
+2. For Ember-cli 0.2.0, you can't have a regular `app.coffee` file, and instead need to use a plain `app.js` file. See [this issue](https://github.com/alexspeller/ember-cli-coffees6/issues/9) for more details.
+
+
 ## Debugging
 
 You can turn on verbose debugging output by adding the option in your Brocfile.js:
@@ -43,10 +57,5 @@ var app = new EmberApp({
 
 1. `export`, `default`, and `import` are reserved words in coffeescript. It's possible that in future they will be implemented with a different meaning. You may have to refactor this code to work with possible future versions of coffeescript
 2. This currently works with ugly regex substitution and not a full parsing. It won't work for every possible expression or indentation etc.
-3. exporting the value returned from Router.map may give you this error: `Failed to create an instance of 'router:main'. Most likely an improperly defined class or an invalid module export` if this is the case, use a `Router` variable like you would without this plugin:
-```coffee
-Router = Ember.Router.extend()
-Router.map( -> ... )
-export default Router
-```
-An old version of Router.map wouldn't return the `Router` instance, but this [should be solved](https://github.com/emberjs/ember.js/commit/23b762fd19b431deaa0e8f7541aac53dce4aa9c3) in ember v1.11.0-beta.4
+
+Help us figure out more elegant ways to use new es6 features like imports and exports in coffeescript! It's a challenging ordeal.
