@@ -27,6 +27,10 @@ npm uninstall ember-cli-coffeescript --save-dev
 ember install:addon ember-cli-coffees6
 ```
 
+## Supported syntax
+
+This plugin aims to support all ES6 module syntax, see the tests for full examples.
+
 ## Known bugs:
 
 1. For ember v1 - v1.10.0, `Router.map` does not return the Router instance, so you can't do `export default Router.map(...)` and need to do this instead:
@@ -50,6 +54,10 @@ var app = new EmberApp({
   }
 });
 ```
+
+## Running tests
+
+`npm test`
 
 ## Warnings / disclaimers
 
