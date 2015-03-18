@@ -24,7 +24,7 @@ export default Ember.Controller.extend()
 # If you already have ember-cli-coffeescript installed
 npm uninstall ember-cli-coffeescript --save-dev
 
-npm install ember-cli-coffees6 --save-dev
+ember install:addon ember-cli-coffees6
 ```
 
 ## Known bugs:
@@ -37,8 +37,6 @@ export default Router
 ```
 
 Track the fix here: https://github.com/emberjs/ember.js/commit/23b762fd19b431deaa0e8f7541aac53dce4aa9c3
-
-2. For Ember-cli 0.2.0, you can't have a regular `app.coffee` file, and instead need to use a plain `app.js` file. See [this issue](https://github.com/alexspeller/ember-cli-coffees6/issues/9) for more details.
 
 
 ## Debugging
