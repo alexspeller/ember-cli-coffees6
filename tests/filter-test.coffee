@@ -1,7 +1,7 @@
 CoffeescriptEs6Filter = require '../filter'
 
 process = (string) ->
-  new CoffeescriptEs6Filter().processString string
+  new CoffeescriptEs6Filter("test").processString string
 
 assertOutput = (input, output) ->
   equal process(input), output
