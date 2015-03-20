@@ -1,4 +1,4 @@
-# ember-cli-coffees6 [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-coffees6.svg)](http://emberobserver.com/addons/ember-cli-coffees6)
+# ember-cli-coffees6 [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-coffees6.svg)](http://emberobserver.com/addons/ember-cli-coffees6) [![Build Status](https://travis-ci.org/alexspeller/ember-cli-coffees6.svg?branch=master)](https://travis-ci.org/alexspeller/ember-cli-coffees6)
 
 
 
