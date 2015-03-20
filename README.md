@@ -1,4 +1,6 @@
-# ember-cli-coffees6
+# ember-cli-coffees6 [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-coffees6.svg)](http://emberobserver.com/addons/ember-cli-coffees6)
+
+
 
 [ember-cli-coffeescript](https://github.com/kimroen/ember-cli-coffeescript) works great with ember-cli, but the syntax for module imports and exports is less than ideal:
 
