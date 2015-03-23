@@ -20,6 +20,8 @@ import Ember from 'ember'
 export default Ember.Controller.extend()
 ```
 
+ember-cli-coffees6 depends on ember-cli-coffeescript, and does simple string substitution on the .coffee files before passing them through to the regular coffeescript compiler. It should work out of the box with anything that currently works with ember-cli-coffeescript, and changing to the new module syntax is option so it can be done one file at a time. If you find a case where this isn't true, please report an issue and it will be fixed!
+
 ## Installation
 
 ```
