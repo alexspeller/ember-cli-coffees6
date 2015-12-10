@@ -1,5 +1,4 @@
 var Filter = require('broccoli-filter')
-var CoffeescriptPreprocessor = require('ember-cli-coffeescript/lib/coffee-preprocessor');
 var debug = require('debug')('ember-cli:ember-cli-coffees6');
 
 function CoffeescriptEs6Filter (inputTree, options) {
@@ -11,7 +10,7 @@ function CoffeescriptEs6Filter (inputTree, options) {
 CoffeescriptEs6Filter.prototype = Object.create(Filter.prototype);
 CoffeescriptEs6Filter.prototype.constructor = CoffeescriptEs6Filter;
 
-CoffeescriptEs6Filter.prototype.extensions = CoffeescriptPreprocessor.prototype.ext;
+CoffeescriptEs6Filter.prototype.extensions = ['coffee'];
 CoffeescriptEs6Filter.prototype.targetExtension = 'coffee'
 
 CoffeescriptEs6Filter.prototype.processString = function (string, src) {

@@ -1,9 +1,6 @@
 'use strict';
 
 var checker = require('ember-cli-version-checker');
-var CoffeescriptAddon = require('ember-cli-coffeescript');
-var coffeescriptOptions = CoffeescriptAddon.getConfig;
-var CoffeescriptPreprocessor = require('ember-cli-coffeescript/lib/coffee-preprocessor');
 var CoffeescriptEs6Filter = require('./filter');
 
 //
@@ -18,8 +15,7 @@ function CoffeeES6Preprocessor(project, options) {
 
 CoffeeES6Preprocessor.prototype.ext = CoffeescriptEs6Filter.prototype.extensions;
 CoffeeES6Preprocessor.prototype.toTree = function(tree, inputPath, outputPath) {
-  var es6ified = new CoffeescriptEs6Filter(tree, this.options);
-  return new CoffeescriptPreprocessor(coffeescriptOptions.call(this)).toTree(es6ified);
+  return new CoffeescriptEs6Filter(tree, this.options);
 };
 
 

@@ -25,11 +25,10 @@
   },
   "homepage": "https://github.com/alexspeller/ember-cli-coffees6",
   "dependencies": {
-    "ember-cli": "^0.2.1",
-    "ember-cli-coffeescript": ">=0.10.0",
     "broccoli-filter": "^0.1.10",
-    "ember-cli-version-checker": ">=1.0.2",
-    "debug": "^2.1.1"
+    "debug": "^2.1.1",
+    "ember-cli": "^1.10.0",
+    "ember-cli-version-checker": ">=1.0.2"
   },
   "devDependencies": {
     "coffee-script": "^1.9.1",

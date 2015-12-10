@@ -25,10 +25,10 @@ ember-cli-coffees6 depends on ember-cli-coffeescript, and does simple string sub
 ## Installation
 
 ```
-# If you already have ember-cli-coffeescript installed
-npm uninstall ember-cli-coffeescript --save-dev
+# if coffeescript is not already installed
+ember install ember-cli-coffeescript
 
-ember install:addon ember-cli-coffees6
+ember install ember-cli-coffees6
 ```
 
 ## Supported syntax
