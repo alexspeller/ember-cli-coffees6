@@ -12,7 +12,7 @@ DummyController = Ember.Controller.extend()
 `export default DummyController`
 ```
 
-Replace ember-cli-coffeescript with ember-cli-coffees6 and you can use a much more natural syntax:
+Enhance ember-cli-coffeescript with ember-cli-coffees6 and you can use a much more natural syntax:
 
 ```coffee
 import Ember from 'ember'
