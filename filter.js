@@ -36,7 +36,7 @@ CoffeescriptEs6Filter.prototype.processString = function (string, src) {
   }
 
   // Fix export default statements
-  var exportRegex = /^export default /m;
+  var exportRegex = /^export default ?/m;
   if (string.match(exportRegex)) {
     string = string.replace(exportRegex, "___DefaultExportObject___ = ");
     string = string + "\n\n`export default ___DefaultExportObject___;`";

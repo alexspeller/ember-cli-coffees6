@@ -165,6 +165,54 @@ test "batch export", ->
     `export * from "math";`
   """
 
+test "nested export", ->
+  assertOutput """
+    export default
+      name: 'body-class'
+      initialize: (container) ->
+        container.foo()
+
+    export PI =
+      3.14
+
+    export TAU = 
+      6.28 
+  """
+  ,
+  """
+    ___DefaultExportObject___ = 
+      name: 'body-class'
+      initialize: (container) ->
+        container.foo()
+
+    PI =
+      3.14
+
+    TAU = 
+      6.28 
+
+    `export default ___DefaultExportObject___;`
+
+    `export { PI, TAU };`
+  """
+
+  assertOutput """
+    export default 
+      name: 'body-class'
+      initialize: (container) ->
+        container.foo()
+  """
+  ,
+  """
+    ___DefaultExportObject___ = 
+      name: 'body-class'
+      initialize: (container) ->
+        container.foo()
+
+    `export default ___DefaultExportObject___;`
+  """
+
+
 
 
 test "multiple exports", ->
