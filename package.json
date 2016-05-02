@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-coffees6",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Makes using coffeescript nicer by supporting es6 syntax natively",
   "main": "index.js",
   "ember-addon": {
@@ -25,9 +25,8 @@
   },
   "homepage": "https://github.com/alexspeller/ember-cli-coffees6",
   "dependencies": {
-    "broccoli-filter": "^0.1.10",
+    "broccoli-persistent-filter": ">=1.2.0",
     "debug": "^2.1.1",
-    "ember-cli": "^1.10.0",
     "ember-cli-version-checker": ">=1.0.2"
   },
   "devDependencies": {

@@ -1,10 +1,10 @@
-var Filter = require('broccoli-filter')
+var Filter = require('broccoli-persistent-filter')
 var debug = require('debug')('ember-cli:ember-cli-coffees6');
 
-function CoffeescriptEs6Filter (inputTree, options) {
+function CoffeescriptEs6Filter (inputNode, options) {
   if (!(this instanceof CoffeescriptEs6Filter)) return new CoffeescriptEs6Filter(inputTree, options);
+  Filter.call(this, inputNode, {annotation: (options || {}).annotation});
   this.options = options;
-  Filter.call(this, inputTree)
 }
 
 CoffeescriptEs6Filter.prototype = Object.create(Filter.prototype);

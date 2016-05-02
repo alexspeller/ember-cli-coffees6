@@ -24,7 +24,7 @@ ember-cli-coffees6 depends on ember-cli-coffeescript, and does simple string sub
 
 ## Upgrading
 
-If you are upgrading to version `0.3.0`, you will need to add `ember-cli-coffeescript` to your `package.json`, as it's no longer included with `ember-cli-coffees6`
+If you are upgrading from a version before `0.3.0`, you will need to add `ember-cli-coffeescript` to your `package.json`, as it's no longer included with `ember-cli-coffees6`
 
 ## Installation
 
@@ -38,18 +38,6 @@ ember install ember-cli-coffees6
 ## Supported syntax
 
 This plugin aims to support all ES6 module syntax, see the tests for full examples.
-
-## Known bugs:
-
-1. For ember v1 - v1.10.0, `Router.map` does not return the Router instance, so you can't do `export default Router.map(...)` and need to do this instead:
-```coffee
-Router = Ember.Router.extend()
-Router.map( -> ... )
-export default Router
-```
-
-Track the fix here: https://github.com/emberjs/ember.js/commit/23b762fd19b431deaa0e8f7541aac53dce4aa9c3
-
 
 ## Debugging
 
