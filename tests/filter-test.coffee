@@ -6,6 +6,11 @@ process = (string) ->
 assertOutput = (input, output) ->
   equal process(input), output
 
+assertThrows = (input, messageRegex) ->
+  throws ->
+    process(input)
+  , messageRegex, "Failed on #{input}"
+
 test "default imports", =>
   assertOutput """
     import Ember from "ember"
@@ -188,3 +193,131 @@ test "multiple exports", ->
 
     `export { Matrix, sin, PI };`
   """
+
+
+test "handles space at end of line", ->
+  assertOutput """
+    import Ember from "ember"  
+    import { sin, cos as c } from "math"  
+    import Matrix, { multiply } from "matrix"  
+    import * as Math from "math"  
+    export default 42  
+    export { sin, c as cos }  
+    export class Point  
+      constructor: (@x, @y) ->  
+    export sin = (x) ->  
+    export PI = 3.14159  
+    export { sin, cos as c } from "math"  
+    export * from "math"  
+  """
+  ,
+  """
+    `import Ember from "ember"  ;`
+    `import { sin, cos as c } from "math"  ;`
+    `import Matrix, { multiply } from "matrix"  ;`
+    `import * as Math from "math"  ;`
+    ___DefaultExportObject___ = 42  
+    `export { sin, c as cos }  ;`
+    class Point  
+      constructor: (@x, @y) ->  
+    sin = (x) ->  
+    PI = 3.14159  
+    `export { sin, cos as c } from "math"  ;`
+    `export * from "math"  
+    ;`
+    `export default ___DefaultExportObject___;`
+
+    `export { Point, sin, PI };`
+  """
+
+test "throws error if semicolon used", ->
+  assertThrows """
+    import Ember from "ember";
+  """
+  , /semicolon/
+
+  assertThrows """
+    import Ember from "ember" ; 
+  """
+  , /semicolon/
+
+  assertThrows """
+    import { sin, cos as c } from "math";
+  """
+  , /semicolon/
+
+  assertThrows """
+    import { sin, cos as c } from "math" ; 
+  """
+  , /semicolon/
+
+  assertThrows """
+    import Matrix, { multiply } from "matrix";
+  """
+  , /semicolon/
+
+  assertThrows """
+    import Matrix, { multiply } from "matrix" ; 
+  """
+  , /semicolon/
+
+  assertThrows """
+    import * as Math from "math";
+  """
+  , /semicolon/
+
+  assertThrows """
+    import * as Math from "math" ; 
+  """
+  , /semicolon/
+
+  assertThrows """
+    export default 42;
+  """
+  , /semicolon/
+
+  assertThrows """
+    export default 42 ; 
+  """
+  , /semicolon/
+
+  assertThrows """
+    export { sin, c as cos };
+  """
+  , /semicolon/
+
+  assertThrows """
+    export { sin, c as cos } ; 
+  """
+  , /semicolon/
+
+  assertThrows """
+    export PI = 3.14159;
+  """
+  , /semicolon/
+
+  assertThrows """
+    export PI = 3.14159 ; 
+  """
+  , /semicolon/
+
+  assertThrows """
+    export { sin, cos as c } from "math";
+  """
+  , /semicolon/
+
+  assertThrows """
+    export { sin, cos as c } from "math" ; 
+  """
+  , /semicolon/
+
+  assertThrows """
+    export * from "math";
+  """
+  , /semicolon/
+
+  assertThrows """
+    export * from "math" ; 
+  """
+  , /semicolon/
+

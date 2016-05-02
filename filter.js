@@ -18,10 +18,21 @@ CoffeescriptEs6Filter.prototype.processString = function (string, src) {
   var match;
   var namedThingsToExport = [];
 
+  var importRegexSemicolon = /^import (.+) from ("|')(.+)("|')\s*;\s*$/gm
+  if (match = string.match(importRegexSemicolon)) {
+    throw new Error("Don't use semicolons in coffeescript: " + match[0])
+  }
+
   // Fix import statements
-  var importRegex = /^import (.+) from ("|')(.+)("|')( \t)*$/gm
+  var importRegex = /^import (.+) from ("|')(.+)("|')\s*$/gm
   while (match = importRegex.exec(string)) {
     string = string.replace(match[0], "`" + match[0] + ";`");
+  }
+
+
+  var exportRegexSemicolon = /^export .+;\s*$/gm;
+  if (match = string.match(exportRegexSemicolon)) {
+    throw new Error("Don't use semicolons in coffeescript: " + match[0])
   }
 
   // Fix export default statements
@@ -32,7 +43,7 @@ CoffeescriptEs6Filter.prototype.processString = function (string, src) {
   }
 
   // Fix named export statements
-  var exportRegex = /^export (\{.*\}|\*)( from ("|').+("|'))?$/gm;
+  var exportRegex = /^export (\{.*\}|\*)( from ("|').+("|'))?\s*$/gm;
   while (match = exportRegex.exec(string)) {
     string = string.replace(match[0], "`" + match[0] + ";`");
   }
