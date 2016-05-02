@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-coffees6",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Makes using coffeescript nicer by supporting es6 syntax natively",
   "main": "index.js",
   "ember-addon": {
