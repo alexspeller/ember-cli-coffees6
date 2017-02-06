@@ -1,6 +1,10 @@
 # ember-cli-coffees6 [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-coffees6.svg)](http://emberobserver.com/addons/ember-cli-coffees6) [![Build Status](https://travis-ci.org/alexspeller/ember-cli-coffees6.svg?branch=master)](https://travis-ci.org/alexspeller/ember-cli-coffees6)
 
 
+## Deprecation Notice
+
+This addon is no longer needed, since [version 1.16.0](https://github.com/kimroen/ember-cli-coffeescript/releases/tag/v1.16.0) of ember-cli-coffeescript.
+
 
 [ember-cli-coffeescript](https://github.com/kimroen/ember-cli-coffeescript) works great with ember-cli, but the syntax for module imports and exports is less than ideal:
 
